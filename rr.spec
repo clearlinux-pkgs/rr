@@ -4,12 +4,12 @@
 #
 Name     : rr
 Version  : 5.1.0
-Release  : 2
+Release  : 3
 URL      : https://github.com/mozilla/rr/archive/5.1.0.tar.gz
 Source0  : https://github.com/mozilla/rr/archive/5.1.0.tar.gz
 Summary  : Lightweight tool for recording and replaying execution of applications (trees of processes and threads)
 Group    : Development/Tools
-License  : @CPACK_RPM_PACKAGE_@ BSD-2-Clause
+License  : BSD-2-Clause
 Requires: rr-bin
 Requires: rr-lib
 Requires: rr-data
@@ -58,7 +58,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1523052412
+export SOURCE_DATE_EPOCH=1523298817
 mkdir clr-build
 pushd clr-build
 cmake .. -G "Unix Makefiles" -DCMAKE_INSTALL_PREFIX=/usr -DBUILD_SHARED_LIBS:BOOL=ON -DLIB_INSTALL_DIR:PATH=/usr/lib64 -DCMAKE_AR=/usr/bin/gcc-ar -DLIB_SUFFIX=64 -DCMAKE_BUILD_TYPE=RelWithDebInfo -DCMAKE_RANLIB=/usr/bin/gcc-ranlib -Ddisable32bit=ON -DWILL_RUN_TESTS=OFF -DRR_BUILD_SHARED=ON -DBUILD_TESTS=OFF
@@ -73,7 +73,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 pushd clr-build ; make test ; popd
 
 %install
-export SOURCE_DATE_EPOCH=1523052412
+export SOURCE_DATE_EPOCH=1523298817
 rm -rf %{buildroot}
 pushd clr-build
 %make_install
