@@ -1,5 +1,5 @@
 PKG_NAME := rr
-URL = https://github.com/mozilla/rr/archive/5.1.0.tar.gz
+URL = https://github.com/mozilla/rr/archive/5.2.0.tar.gz
 ARCHIVES = 
 
 include ../common/Makefile.common
