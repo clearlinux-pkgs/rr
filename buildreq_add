@@ -2,5 +2,5 @@
 # picked up automatically. One name per line, no whitespace.
 capnproto-dev
 python
-pexpect-legacypython
+deprecated-pexpect-legacypython
 gdb-bin

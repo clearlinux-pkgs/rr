@@ -4,20 +4,20 @@
 #
 Name     : rr
 Version  : 5.2.0
-Release  : 5
+Release  : 6
 URL      : https://github.com/mozilla/rr/archive/5.2.0.tar.gz
 Source0  : https://github.com/mozilla/rr/archive/5.2.0.tar.gz
-Summary  : Lightweight tool for recording and replaying execution of applications (trees of processes and threads)
+Summary  : Record and Replay framework: lightweight recording and deterministic debugging
 Group    : Development/Tools
 License  : BSD-2-Clause
-Requires: rr-bin
-Requires: rr-lib
-Requires: rr-license
-Requires: rr-data
+Requires: rr-bin = %{version}-%{release}
+Requires: rr-data = %{version}-%{release}
+Requires: rr-lib = %{version}-%{release}
+Requires: rr-license = %{version}-%{release}
 BuildRequires : buildreq-cmake
 BuildRequires : capnproto-dev
+BuildRequires : deprecated-pexpect-legacypython
 BuildRequires : gdb-bin
-BuildRequires : pexpect-legacypython
 BuildRequires : pkg-config
 BuildRequires : python
 BuildRequires : python3
@@ -32,8 +32,8 @@ http://rr-project.org
 %package bin
 Summary: bin components for the rr package.
 Group: Binaries
-Requires: rr-data
-Requires: rr-license
+Requires: rr-data = %{version}-%{release}
+Requires: rr-license = %{version}-%{release}
 
 %description bin
 bin components for the rr package.
@@ -50,8 +50,8 @@ data components for the rr package.
 %package lib
 Summary: lib components for the rr package.
 Group: Libraries
-Requires: rr-data
-Requires: rr-license
+Requires: rr-data = %{version}-%{release}
+Requires: rr-license = %{version}-%{release}
 
 %description lib
 lib components for the rr package.
@@ -75,7 +75,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1536642237
+export SOURCE_DATE_EPOCH=1554341704
 mkdir -p clr-build
 pushd clr-build
 %cmake .. -Ddisable32bit=ON -DWILL_RUN_TESTS=OFF -DRR_BUILD_SHARED=ON -DBUILD_TESTS=OFF
@@ -90,10 +90,10 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 cd clr-build; make test
 
 %install
-export SOURCE_DATE_EPOCH=1536642237
+export SOURCE_DATE_EPOCH=1554341704
 rm -rf %{buildroot}
-mkdir -p %{buildroot}/usr/share/doc/rr
-cp LICENSE %{buildroot}/usr/share/doc/rr/LICENSE
+mkdir -p %{buildroot}/usr/share/package-licenses/rr
+cp LICENSE %{buildroot}/usr/share/package-licenses/rr/LICENSE
 pushd clr-build
 %make_install
 popd
@@ -133,5 +133,5 @@ popd
 /usr/lib/rr/librrpreload.so
 
 %files license
-%defattr(-,root,root,-)
-/usr/share/doc/rr/LICENSE
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/rr/LICENSE
