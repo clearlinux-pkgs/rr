@@ -4,7 +4,7 @@
 #
 Name     : rr
 Version  : 5.2.0
-Release  : 6
+Release  : 7
 URL      : https://github.com/mozilla/rr/archive/5.2.0.tar.gz
 Source0  : https://github.com/mozilla/rr/archive/5.2.0.tar.gz
 Summary  : Record and Replay framework: lightweight recording and deterministic debugging
