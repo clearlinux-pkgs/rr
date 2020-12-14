@@ -4,7 +4,7 @@
 #
 Name     : rr
 Version  : 5.4.0
-Release  : 10
+Release  : 11
 URL      : https://github.com/mozilla/rr/archive/5.4.0/rr-5.4.0.tar.gz
 Source0  : https://github.com/mozilla/rr/archive/5.4.0/rr-5.4.0.tar.gz
 Summary  : Lightweight tool for recording and replaying execution of applications (trees of processes and threads)
